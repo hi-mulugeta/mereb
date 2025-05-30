@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Inter", "Noto Sans Ethiopic", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* Add Amharic font support */
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  .amharic {
+    font-family: "Noto Sans Ethiopic", sans-serif;
+  }
+}
+
+/* Ensure modal stacks correctly */
+.z-50 {
+  z-index: 50;
+}
+
+/* Fix for modal backdrop */
+.fixed {
+  position: fixed;
+}
+
+/* Make sure nothing is hiding the modal */
+.relative {
+  position: relative;
+}

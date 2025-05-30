@@ -213,7 +213,7 @@ const OrderForm = ({ product, onClose }) => {
 
               <motion.div whileHover={{ y: -2 }}>
                 <label className="block text-sm font-medium text-gray-400 mb-2">
-                  ብዛት
+                  ብዛት?
                 </label>
                 <select
                   name="quantity"

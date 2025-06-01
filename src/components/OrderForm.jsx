@@ -48,7 +48,7 @@ const OrderForm = ({ product, onClose }) => {
       await sendToTelegramBot();
       setSubmitted(true);
     } catch (err) {
-      setError("ስህተት ተፈጥሯል፣ እባኮትን እንደገና �ምር");
+      setError("ስህተት ተፈጥሯል፣ እባኮትን እንደገና ይሞክሩ");
       console.error("Submission error:", err);
     } finally {
       setIsLoading(false);
@@ -114,21 +114,21 @@ const OrderForm = ({ product, onClose }) => {
       <motion.div
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
-        className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl w-full max-w-md border border-gray-700 shadow-2xl overflow-hidden"
+        className="bg-white rounded-xl w-full max-w-md border border-gray-200 shadow-2xl overflow-hidden"
       >
-        <div className="h-1 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
+        <div className="h-2 bg-gradient-to-r from-ethiopian-green to-green-600"></div>
 
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <motion.h3
-              className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"
+              className="text-xl font-bold text-gray-800 amharic"
               whileHover={{ scale: 1.02 }}
             >
               የትዕዛዝ ቅጽ: {product.name}
             </motion.h3>
             <motion.button
               onClick={onClose}
-              className="text-gray-400 hover:text-white p-1 rounded-full"
+              className="text-gray-500 hover:text-gray-700 p-1 rounded-full"
               whileHover={{ rotate: 90, scale: 1.1 }}
               disabled={isLoading}
             >
@@ -149,14 +149,14 @@ const OrderForm = ({ product, onClose }) => {
             </motion.button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <AnimatePresence>
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="bg-gray-800/50 text-red-400 p-3 rounded-lg flex items-start border border-red-900/50"
+                  className="bg-red-50 text-red-600 p-3 rounded-lg flex items-start border border-red-200 amharic"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,8 +175,8 @@ const OrderForm = ({ product, onClose }) => {
               )}
             </AnimatePresence>
 
-            <motion.div whileHover={{ y: -2 }}>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+            <motion.div whileHover={{ y: -1 }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1 amharic">
                 ሙሉ ስም
               </label>
               <input
@@ -184,19 +184,19 @@ const OrderForm = ({ product, onClose }) => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
+                className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ethiopian-green focus:border-transparent text-gray-800 placeholder-gray-400 amharic"
                 placeholder="ስምዎን ያስገቡ"
                 disabled={isLoading}
               />
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <motion.div whileHover={{ y: -2 }}>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <motion.div whileHover={{ y: -1 }}>
+                <label className="block text-sm font-medium text-gray-700 mb-1 amharic">
                   ስልክ ቁጥር
                 </label>
                 <div className="flex">
-                  <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-700 bg-gray-800 text-gray-400 text-sm">
+                  <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-100 text-gray-600 text-sm">
                     +251
                   </span>
                   <input
@@ -204,26 +204,26 @@ const OrderForm = ({ product, onClose }) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-r-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
+                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-ethiopian-green focus:border-transparent text-gray-800 placeholder-gray-400"
                     placeholder="911223344"
                     disabled={isLoading}
                   />
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -2 }}>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
-                  ብዛት?
+              <motion.div whileHover={{ y: -1 }}>
+                <label className="block text-sm font-medium text-gray-700 mb-1 amharic">
+                  ብዛት
                 </label>
                 <select
                   name="quantity"
                   value={formData.quantity}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ethiopian-green focus:border-transparent text-gray-800 amharic"
                   disabled={isLoading}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                    <option key={num} value={num} className="bg-gray-800">
+                    <option key={num} value={num} className="bg-white">
                       {num}
                     </option>
                   ))}
@@ -231,8 +231,8 @@ const OrderForm = ({ product, onClose }) => {
               </motion.div>
             </div>
 
-            <motion.div whileHover={{ y: -2 }}>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+            <motion.div whileHover={{ y: -1 }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1 amharic">
                 የማድረሻ አድራሻ
               </label>
               <textarea
@@ -240,14 +240,14 @@ const OrderForm = ({ product, onClose }) => {
                 value={formData.address}
                 onChange={handleChange}
                 rows="3"
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
+                className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ethiopian-green focus:border-transparent text-gray-800 placeholder-gray-400 amharic"
                 placeholder="ከተማ፣ ክልል፣ ዝርዝር አድራሻ"
                 disabled={isLoading}
               ></textarea>
             </motion.div>
 
-            <motion.div whileHover={{ y: -2 }}>
-              <label className="block text-sm font-medium text-gray-400 mb-2">
+            <motion.div whileHover={{ y: -1 }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1 amharic">
                 ተጨማሪ መልዕክት (አማራጭ)
               </label>
               <textarea
@@ -255,25 +255,25 @@ const OrderForm = ({ product, onClose }) => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="2"
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
+                className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ethiopian-green focus:border-transparent text-gray-800 placeholder-gray-400 amharic"
                 placeholder="ማንኛውም ተጨማሪ መረጃ ወይም ማስታወሻ..."
                 disabled={isLoading}
               ></textarea>
             </motion.div>
 
             <motion.div
-              className="bg-gray-800/30 p-4 rounded-lg border border-gray-700"
+              className="bg-gray-50 p-4 rounded-lg border border-gray-200"
               whileHover={{ scale: 1.01 }}
             >
               <div className="flex justify-between">
-                <span className="text-gray-400">የአንድ ዋጋ</span>
-                <span className="font-medium text-gray-300">
+                <span className="text-gray-600 amharic">የአንድ ዋጋ</span>
+                <span className="font-medium text-gray-700">
                   {product.price} ብር
                 </span>
               </div>
               <div className="flex justify-between mt-2">
-                <span className="text-gray-400">ጠቅላላ ዋጋ</span>
-                <span className="text-lg font-bold text-cyan-400">
+                <span className="text-gray-600 amharic">ጠቅላላ ዋጋ</span>
+                <span className="text-lg font-bold text-ethiopian-green">
                   {product.price * formData.quantity} ብር
                 </span>
               </div>
@@ -284,14 +284,14 @@ const OrderForm = ({ product, onClose }) => {
               disabled={isLoading}
               className={`w-full py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${
                 isLoading
-                  ? "bg-gray-700 cursor-not-allowed"
-                  : "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500"
-              }`}
+                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                  : "bg-green-400 hover:bg-green-600 text-white"
+              } amharic`}
               whileHover={
                 !isLoading
                   ? {
                       scale: 1.02,
-                      boxShadow: "0 0 20px -5px rgba(6, 182, 212, 0.5)",
+                      boxShadow: "0 0 15px -3px rgba(0, 128, 0, 0.3)",
                     }
                   : {}
               }
@@ -300,7 +300,7 @@ const OrderForm = ({ product, onClose }) => {
               {isLoading ? (
                 <>
                   <svg
-                    className="animate-spin -ml-1 mr-2 h-5 w-5 text-white"
+                    className="animate-spin -ml-1 mr-2 h-5 w-5 text-gray-600"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -319,7 +319,7 @@ const OrderForm = ({ product, onClose }) => {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  <span className="text-white">እየተላከ ነው...</span>
+                  <span>እየተላከ ነው...</span>
                 </>
               ) : (
                 <>
@@ -335,13 +335,13 @@ const OrderForm = ({ product, onClose }) => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-white">ትዕዛዝ ይላኩ</span>
+                  <span>ትዕዛዝ ይላኩ</span>
                 </>
               )}
             </motion.button>
           </form>
 
-          <p className="text-center text-gray-500 text-xs mt-5">
+          <p className="text-center text-gray-500 text-xs mt-5 amharic">
             የእርስዎ መረጃ የሚያልፈው በደህንነት ብቻ ነው። እኛ የእርስዎን ግላዊነት እናስከብራለን።
           </p>
         </div>

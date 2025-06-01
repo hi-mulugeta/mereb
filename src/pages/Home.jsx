@@ -1243,7 +1243,7 @@ const Home = () => {
                       onClick={() => paginate(number)}
                       className={`px-3 py-1 min-w-[40px] rounded-md border ${
                         currentPage === number
-                          ? "bg-ethiopian-green text-gray-500 border-ethiopian-green"
+                          ? "bg-ethiopian-green text-gray-400 border-ethiopian-green"
                           : "bg-white text-gray-700 border-gray-600 hover:bg-gray-50"
                       }`}
                     >

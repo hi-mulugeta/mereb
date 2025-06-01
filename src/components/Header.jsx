@@ -21,7 +21,7 @@ const Header = () => {
 
         <div className="bg-white/20 p-3 rounded-lg text-center">
           {/* Phone number text: Changed from "ለምርዚያት ይደውሉ፡" to "ለጥያቄ ይደውሉ:" */}
-          <p className="font-semibold">ለጥያቄ ይደውሉ፡ +251-111-55-13-34</p>
+          <p className="font-semibold">ለጥያቄ ይደውሉ፡ +251-111-55-13-35</p>
           {/* Location text: Changed from "ቦታ፡ አዲስ አበባ, ፒያሳ" to "አድራሻ፡ አዲስ አበባ፣ ፒያሳ" */}
           <p className="text-sm mt-1">አድራሻ፡ አዲስ አበባ፣ ፒያሳ</p>
         </div>
